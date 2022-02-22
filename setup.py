@@ -27,4 +27,9 @@ setup(
     url='https://github.com/mitchelllisle/thoth-backend',
     version='0.1.0',
     zip_safe=False,
+    entry_points={
+        'console_scripts': [
+            'thoth=thoth.cli:main',
+        ],
+    },
 )

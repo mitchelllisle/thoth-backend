@@ -76,3 +76,9 @@ install-dev-local: ## install all the stuff you need to develop locally
 
 publish: dist ## publish the package to PyPI
 	twine upload dist/*
+
+run-infra:
+	docker-compose -f docker/dev/docker-compose.yaml up -d --remove-orphans
+
+stop-infra:
+	docker-compose -f docker/dev/docker-compose.yaml down -v
