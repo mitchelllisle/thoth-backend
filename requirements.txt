@@ -3,3 +3,5 @@ pydantic
 siphon-data
 httpx
 funcy
+click
+asyncclick

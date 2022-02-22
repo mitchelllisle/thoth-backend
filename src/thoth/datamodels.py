@@ -1,6 +1,7 @@
 from datetime import date, datetime
 from typing import List, Optional, Union
 
+from funcy import lmap
 from pydantic import BaseModel, SecretStr
 
 
@@ -35,6 +36,10 @@ class Album(BaseModel):
     release_date: Union[date, datetime]
     total_tracks: int
     tracks: Tracks
+
+    @property
+    def ids(self) -> List[str]:
+        return lmap(lambda track: track.id, self.tracks.items)
 
     def __iter__(self):
         yield from self.tracks.items
